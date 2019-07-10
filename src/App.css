@@ -1,0 +1,13 @@
+.container {
+    background: darkred;
+    width: 500px;
+    height: 100%;
+}
+
+.display {
+    background: #2E292A;
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
