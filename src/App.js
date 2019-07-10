@@ -5,7 +5,6 @@ import Logo from "./components/DisplayComponents/Logo";
 import Display from './components/DisplayComponents/Display'
 import Operators from './components/ButtonComponents/OperatorButtons/Operators'
 import Specials from './components/ButtonComponents/SpecialButtons/Specials'
-import {buttonPressReducer, CalcActionEventComm} from './State'
 
 
 function App() {
@@ -15,26 +14,64 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
-  const [state, dispatch] = useReducer(buttonPressReducer, {displayValue: ""});
-  let contextBundle = {dispatch, value: state.displayValue}
+  let [display, setDisplay] = useState("")
+  let [previousNumber, setPreviousNumberVal] = useState("")
+  let [operator, setOperator] = useState("")
+  let [clearDisplayOnNextOperation, setShouldClearDisplayOnNextOperation] = useState(false)
+
+  let numberOnClickHandler = function(value) {
+      if (setShouldClearDisplayOnNextOperation) {
+        setDisplay(value)
+        setShouldClearDisplayOnNextOperation(false)
+      } else {
+        setDisplay(display + value)
+      }
+  }
+
+  let operatorOnClickHandler = function(value) {
+      if (operator.length > 0) {
+        performOperation()
+      }
+
+      setOperator(value)
+      setPreviousNumberVal(display)
+      setShouldClearDisplayOnNextOperation(true)
+  }
+
+  let performOperation = function() {
+    const firstValue = parseInt(display)
+    const secondValue = parseInt(perviousNumber)
+
+    switch (operator) {
+			default:
+				setDisplay(firstnumber + secondnumber)
+				break;
+			case "-":
+				setDisplay(firstnumber - secondnumber);
+				break;
+			case "/":
+				setDisplay(firstnumber / secondnumber)
+				break;
+			case "*":
+				setDisplay(firstnumber * secondnumber)
+				break;
+    }
+  }
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
-        <CalcActionEventComm.Provider value={contextBundle}>
-          {<Display />}
-          <div className="keys">
-            <div className="keypad">
-              {<Specials />}
-              {<Numbers />}
-            </div>
-            <div className="operators-container">
-              {<Operators />}
-            </div>
+        {<Display />}
+        <div className="keys">
+          <div className="keypad">
+            {<Specials />}
+            {<Numbers />}
           </div>
-          {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-          </CalcActionEventComm.Provider>
+          <div className="operators-container">
+            {<Operators />}
+          </div>
+        </div>
       </div>
     </div>
   );
