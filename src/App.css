@@ -1,13 +1,91 @@
 .container {
-    background: darkred;
+    background: #BB1234;
     width: 500px;
     height: 100%;
+    border-radius: 15px;
 }
 
 .display {
     background: #2E292A;
     width: 80%;
-    height: 40px;
+    height: 60px;
     margin: 0 auto;
     border-radius: 10px;
+    display: flex;
+    color: white;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.number-button {
+    background: #113C77;
+    width: 80px;
+    height: 80px;
+    border-radius: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    box-shadow: #420108 0px 5px;
+    color: white;
+}
+
+.number-button:hover {
+    cursor: pointer;
+}
+
+.number-button.wide {
+    width: 180px;
+}
+
+.number-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.number-container > .number-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.number-button > .value {
+    font-size: 25px;
+}
+
+.number-button.special {
+    background: #2161B1;
+}
+
+.number-button.operator {
+    background: #3DB5E5;
+}
+
+.specials-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.keys {
+    display: flex;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display {
+
+}
+
+.display > .display-content {
+    padding: 0 10px;
+    font-size: 30px;
 }

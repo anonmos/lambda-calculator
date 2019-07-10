@@ -4,12 +4,12 @@ import OperatorButton from './OperatorButton'
 
 const Operators = () => {
   // STEP 2 - add the imported data to state
-  let [operators, setOperators] = useState(operatorsArray)
+  let [operators] = useState(operatorsArray)
 
   return (
-    <div>
-      {operators.map((operator) => {
-        return <OperatorButton value={operator} />
+    <div className="operators">
+      {operators.map((operator, i) => {
+        return <OperatorButton key={i} value={operator} />
       })}
       {/* STEP 3 - Use .map() to iterate over your array data and return a button
        component matching the name on the provided file. Pass
