@@ -29,11 +29,14 @@ function App() {
   }
 
   let operatorOnClickHandler = function(value) {
-      if (operator.length > 0) {
+      if (operator.length > 0 && operator !== "=") {
         performOperation()
+        setOperator(value)
+      } else {
+        performOperation()
+        setOperator("")
       }
 
-      setOperator(value)
       setPreviousNumberVal(display)
       setShouldClearDisplayOnNextOperation(true)
   }
