@@ -1,6 +1,8 @@
 import React from "react";
 
 const NumberButton = (props) => {
+  // We have a special case where there is a fat "0" button.  Check for the "wide" prop
+  // and apply it if necessary
   let classes = 'number-button'
   if (props.wide) {
     classes += ' wide'
