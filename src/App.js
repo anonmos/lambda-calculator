@@ -46,6 +46,14 @@ function App() {
       setShouldClearDisplayOnNextOperation(true)
   }
 
+  let specialOnClickHandler = function(value) {
+    if (value === "C") {
+      setDisplay("")
+      setPreviousNumberVal("")
+      setOperator("")
+    }
+  }
+
   let performOperation = function() {
     const firstValue = parseInt(display)
     const secondValue = parseInt(previousNumber)
@@ -73,7 +81,7 @@ function App() {
         {<Display value={display} />}
         <div className="keys">
           <div className="keypad">
-            {<Specials />}
+            {<Specials onClickHandler={specialOnClickHandler} />}
             {<Numbers onClickHandler={numberOnClickHandler} />}
           </div>
           <div className="operators-container">

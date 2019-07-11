@@ -2,7 +2,7 @@ import React from "react";
 
 const SpecialButton = (props) => {
   function handleClick() {
-    props.onClickHandler(props.special.value)
+    props.onClickHandler(props.value)
   }
 
   return (
