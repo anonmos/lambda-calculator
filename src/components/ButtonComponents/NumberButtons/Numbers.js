@@ -14,21 +14,21 @@ const Numbers = (props) => {
     <div className="number-container">
       <div className="number-row">
         {firstRow.map((number, i) => {
-          return <NumberButton key={i} value={number} />
+          return <NumberButton key={i} value={number} onClickHandler={props.onClickHandler} />
         })}
       </div>
       <div className="number-row">
         {secondRow.map((number, i) => {
-          return <NumberButton key={i} value={number} />
+          return <NumberButton key={i} value={number} onClickHandler={props.onClickHandler} />
         })}
       </div>
       <div className="number-row">
         {thirdRow.map((number, i) => {
-          return <NumberButton key={i} value={number} />
+          return <NumberButton key={i} value={number} onClickHandler={props.onClickHandler} />
         })}
       </div>
       <div className="number-row">
-        <NumberButton value={numbers[numbers.length - 2]} wide={true} />
+        <NumberButton value={numbers[numbers.length - 2]} wide={true} onClickHandler={props.onClickHandler} />
         <NumberButton value={numbers[numbers.length - 1]} />
       </div>
       {/* STEP 3 - Use .map() to iterate over your array data and return a button

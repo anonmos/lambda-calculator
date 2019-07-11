@@ -1,5 +1,4 @@
-import React, {useContext} from "react";
-import {CalcActionEventComm} from '../../State'
+import React from "react";
 
 const Display = (props) => {
   return <div className="display"><div className="display-content">{props.value}</div></div>;

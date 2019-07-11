@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, {useState} from "react";
 import "./App.css";
 import Numbers from './components/ButtonComponents/NumberButtons/Numbers'
 import Logo from "./components/DisplayComponents/Logo";
@@ -20,7 +20,7 @@ function App() {
   let [clearDisplayOnNextOperation, setShouldClearDisplayOnNextOperation] = useState(false)
 
   let numberOnClickHandler = function(value) {
-      if (setShouldClearDisplayOnNextOperation) {
+      if (clearDisplayOnNextOperation) {
         setDisplay(value)
         setShouldClearDisplayOnNextOperation(false)
       } else {
@@ -40,7 +40,7 @@ function App() {
 
   let performOperation = function() {
     const firstValue = parseInt(display)
-    const secondValue = parseInt(perviousNumber)
+    const secondValue = parseInt(previousNumber)
 
     switch (operator) {
 			default:

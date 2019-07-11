@@ -1,12 +1,8 @@
-import React, {useContext} from "react";
-import {CalcActionEventComm, ACTION_CLEAR} from '../../../State'
+import React from "react";
 
 const SpecialButton = (props) => {
-
-  const contextBundle = useContext(CalcActionEventComm);
   function handleClick() {
-    if (props.value === "C")
-    contextBundle.dispatch({type: ACTION_CLEAR})
+    props.onClickHandler(props.special.value)
   }
 
   return (

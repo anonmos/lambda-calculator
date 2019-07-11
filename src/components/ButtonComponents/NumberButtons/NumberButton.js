@@ -1,18 +1,13 @@
-import React, {useContext} from "react";
-import {CalcActionEventComm, ACTION_CONCATENATE} from '../../../State'
+import React from "react";
 
 const NumberButton = (props) => {
-
-  const contextBundle = useContext(CalcActionEventComm);
-
   let classes = 'number-button'
   if (props.wide) {
     classes += ' wide'
   }
 
   function handleClick() {
-    console.log(`Clicked ${props.value}`)
-    contextBundle.dispatch({type: ACTION_CONCATENATE, value: props.value})
+    props.onClickHandler(props.value)
   }
 
   return (

@@ -3,7 +3,7 @@ import {specials as specialsArray} from '../../../data'
 import SpecialButton from './SpecialButton'
 
 
-const Specials = () => {
+const Specials = (props) => {
   // STEP 2 - add the imported data to state
   let [specials] = useState(specialsArray)
 
@@ -11,7 +11,7 @@ const Specials = () => {
     <div className="specials-container">
       {
         specials.map((special, i) => {
-          return <SpecialButton key={i} value={special} />
+          return <SpecialButton key={i} value={special} onClickHandler={props.onClickHandler} />
         })
       }
       {/* STEP 3 - Use .map() to iterate over your array data and return a button
