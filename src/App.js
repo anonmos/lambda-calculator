@@ -44,16 +44,16 @@ function App() {
 
     switch (operator) {
 			default:
-				setDisplay(firstnumber + secondnumber)
+				setDisplay(firstValue + secondValue)
 				break;
 			case "-":
-				setDisplay(firstnumber - secondnumber);
+				setDisplay(firstValue - secondValue);
 				break;
 			case "/":
-				setDisplay(firstnumber / secondnumber)
+				setDisplay(firstValue / secondValue)
 				break;
 			case "*":
-				setDisplay(firstnumber * secondnumber)
+				setDisplay(firstValue * secondValue)
 				break;
     }
   }
@@ -62,14 +62,14 @@ function App() {
     <div className="container">
       <Logo />
       <div className="App">
-        {<Display />}
+        {<Display value={display} />}
         <div className="keys">
           <div className="keypad">
             {<Specials />}
-            {<Numbers />}
+            {<Numbers onClickHandler={numberOnClickHandler} />}
           </div>
           <div className="operators-container">
-            {<Operators />}
+            {<Operators onClickHandler={operatorOnClickHandler} />}
           </div>
         </div>
       </div>
