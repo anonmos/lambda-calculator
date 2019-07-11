@@ -51,6 +51,7 @@ function App() {
       setDisplay("")
       setPreviousNumberVal("")
       setOperator("")
+      setShouldClearDisplayOnNextOperation(false)
     }
   }
 
