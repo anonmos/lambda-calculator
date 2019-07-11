@@ -7,7 +7,9 @@ const NumberButton = (props) => {
   }
 
   function handleClick() {
-    props.onClickHandler(props.value)
+    if (props.onClickHandler && typeof props.onClickHandler === "function") {
+      props.onClickHandler(props.value)
+    }
   }
 
   return (
