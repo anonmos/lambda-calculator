@@ -23,6 +23,10 @@ function App() {
       if (clearDisplayOnNextOperation) {
         setDisplay(value)
         setShouldClearDisplayOnNextOperation(false)
+      } else if (value === ".") {
+        if (display.indexOf('.') === -1) {
+          setDisplay(display + value)
+        }
       } else {
         setDisplay(display + value)
       }
@@ -35,9 +39,6 @@ function App() {
       } else if (operator.length > 0 && operator === "=") {
         performOperation()
         setOperator("")
-      } else if (operator.length > 0) {
-        performOperation()
-        setOperator(value)
       } else {
         setOperator(value)
       }
@@ -52,25 +53,35 @@ function App() {
       setPreviousNumberVal("")
       setOperator("")
       setShouldClearDisplayOnNextOperation(false)
+    } else if (value === "x/-" && display.length > 0) {
+
+      if (display[0] !== '-') {
+        setDisplay("-" + display)
+      } else if (display[0] === "-") {
+        setDisplay(display.slice(1, display.length))
+      }
+    } else if (value === "%" && display.length > 0) {
+      let displayVal = parseFloat(display)
+      setDisplay(displayVal * .01)
     }
   }
 
   let performOperation = function() {
-    const firstValue = parseInt(display)
-    const secondValue = parseInt(previousNumber)
+    const firstValue = parseFloat(display)
+    const secondValue = parseFloat(previousNumber)
 
     switch (operator) {
-			default:
-				setDisplay(firstValue + secondValue)
+			case "+":
+				setDisplay(secondValue + firstValue)
 				break;
 			case "-":
-				setDisplay(firstValue - secondValue);
+				setDisplay(secondValue - firstValue);
 				break;
 			case "/":
-				setDisplay(firstValue / secondValue)
+				setDisplay(secondValue / firstValue)
 				break;
 			case "*":
-				setDisplay(firstValue * secondValue)
+				setDisplay(secondValue * firstValue)
 				break;
     }
   }

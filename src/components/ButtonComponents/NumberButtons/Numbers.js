@@ -29,7 +29,7 @@ const Numbers = (props) => {
       </div>
       <div className="number-row">
         <NumberButton value={numbers[numbers.length - 2]} wide={true} onClickHandler={props.onClickHandler} />
-        <NumberButton value={numbers[numbers.length - 1]} />
+        <NumberButton value={numbers[numbers.length - 1]} onClickHandler={props.onClickHandler}/>
       </div>
       {/* STEP 3 - Use .map() to iterate over your array data and return a button
        component matching the name on the provided file. Pass

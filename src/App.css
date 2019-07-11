@@ -30,6 +30,10 @@
     color: white;
 }
 
+.number-button:active {
+    box-shadow: #420108 0 3px;
+}
+
 .number-button:hover {
     cursor: pointer;
 }
