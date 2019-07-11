@@ -32,9 +32,14 @@ function App() {
       if (operator.length > 0 && operator !== "=") {
         performOperation()
         setOperator(value)
-      } else {
+      } else if (operator.length > 0 && operator === "=") {
         performOperation()
         setOperator("")
+      } else if (operator.length > 0) {
+        performOperation()
+        setOperator(value)
+      } else {
+        setOperator(value)
       }
 
       setPreviousNumberVal(display)
